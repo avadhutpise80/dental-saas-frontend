@@ -13,8 +13,10 @@ function LabOrders() {
 
   const fetchOrders = async () => {
     try {
+
       const res = await api.get("/orders/lab");
       setOrders(res.data || []);
+
     } catch (err) {
       console.error(err);
     }
@@ -81,7 +83,6 @@ function LabOrders() {
       default:
         return null;
     }
-
   };
 
   return (
@@ -127,16 +128,12 @@ function LabOrders() {
 
                 <td className="p-4 flex gap-2">
 
-                  {/* VIEW ORDER */}
-
                   <Link
                     to={`/lab/orders/${order.id}`}
                     className="bg-gray-600 text-white px-3 py-1 rounded text-sm"
                   >
                     View
                   </Link>
-
-                  {/* STATUS BUTTON */}
 
                   {statusButton(order)}
 
@@ -165,7 +162,6 @@ function LabOrders() {
     </SidebarLayout>
 
   );
-
 }
 
 export default LabOrders;
